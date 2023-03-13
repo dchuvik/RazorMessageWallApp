@@ -6,16 +6,19 @@ namespace RazorMessageWall.Pages
     public class MessageWallModel : PageModel
     {
         [BindProperty]
-        public string Message { get; set; }
+        public string FirstName { get; set; }
         [BindProperty]
-        public List<string> Messages { get; set; } = new List<string>();
+        public string LastName { get; set; }
+        [BindProperty]
+        public List<string> FullNames { get; set; } = new List<string>();
         public void OnGet()
         {
         }
 
         public IActionResult OnPost()
         {
-            Messages.Add(Message);
+            string fullName = $"{FirstName} {LastName}";
+            FullNames.Add(fullName);
             return Page();
         }
     }

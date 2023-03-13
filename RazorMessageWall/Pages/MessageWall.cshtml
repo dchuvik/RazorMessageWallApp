@@ -4,21 +4,21 @@
     ViewData["Title"] = "MessageWall";
 }
 <h1>Message Wall</h1>
-
 <form method="post">
     <div class= "form-group">
-        @for (int i = 0; i < Model.Messages.Count; i++)
+        @for (int i = 0; i < Model.FullNames.Count; i++)
         {
-            <input type="hidden" asp-for="Messages[i]" />
+            <input type="hidden" asp-for="FullNames[i]" />
         }
-        <input asp-for="Message" type = "text" placeholder="Type your message" />
+        <input asp-for="FirstName" type = "text" placeholder="Type your First Name" />
+        <input asp-for="LastName" type="text" placeholder="Type your Last Name" />
         <button type="submit" class="btn btn-primary">Submit</button>
 
     </div>
 </form>
 
-<h2>Here are your messages:</h2>
-@foreach(var message in Model.Messages)
+<h2>Here are your names:</h2>
+@foreach(var fullName in Model.FullNames)
 {
-    <h3>@message</h3>
+    <h3>@fullName</h3>
 }
